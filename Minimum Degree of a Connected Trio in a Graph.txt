@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int minTrioDegree(int n, vector<vector<int>>& edges) {
+		
+        vector<vector<int>> v(n+1,vector<int>(n+1,0));
+        vector<int> degree(n+1,0);
+        for(auto &x : edges){
+            int i = x[0];
+            int j = x[1];
+            v[i][j] = 1;
+            v[j][i] = 1;
+            degree[i]++;
+            degree[j]++;
+        }
+        int min_degree = INT_MAX;
+        for(int i = 1; i <= n; i++){
+            for(int j = i+1; j <= n; j++){
+           // Optimised
+                if(v[i][j]){
+                    for(int k = j+1; k <= n; k++){
+                        if(v[j][k] && v[k][i]){
+                           min_degree = min(min_degree,(degree[i]-2)+(degree[j]-2)+(degree[k]-2)); 
+                        }
+                    }
+                }
+                    
+                }
+                
+            }
+        
+        if(min_degree == INT_MAX)return -1;
+        
+        return min_degree;
+    }
+
+};
