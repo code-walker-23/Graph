@@ -1,1 +1,11 @@
-0 1 2 3 4 
+Distance of 0 from the 0 is 0
+Distance of 1 from the 0 is 1
+Distance of 2 from the 0 is 1
+Distance of 3 from the 0 is 1
+Distance of 4 from the 0 is 2
+Bfs of the given Graph : 
+0
+1
+2
+3
+4
